@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aditya | About Me & Web Designs</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b17;
+color:#fff;
+line-height:1.6
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:5;
+background:#070b17dd;
+backdrop-filter:blur(12px);
+border-bottom:1px solid #ffffff18
+}
+
+nav{
+max-width:1100px;
+margin:auto;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px
+}
+
+.logo{
+font-size:27px;
+font-weight:800
+}
+
+.logo span,
+.accent{
+color:#00d9ff
+}
+
+nav ul{
+display:flex;
+gap:18px;
+list-style:none
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:14px
+}
+
+nav a:hover{
+color:#00d9ff
+}
+
+.menu{
+display:none;
+font-size:25px
+}
+
+section{
+padding:90px 20px
+}
+
+.wrap{
+max-width:1100px;
+margin:auto
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+place-items:center;
+text-align:center;
+padding-top:110px;
+background:radial-gradient(
+circle at 50% 20%,
+#172b55,
+#070b17 55%
+)
+}
+
+.badge{
+display:inline-block;
+border:1px solid #00d9ff55;
+color:#00d9ff;
+padding:8px 15px;
+border-radius:30px;
+margin-bottom:20px
+}
+
+.hero h1{
+font-size:clamp(45px,8vw,80px);
+line-height:1.05
+}
+
+.hero p{
+max-width:700px;
+color:#a9b4cc;
+margin:20px auto;
+font-size:18px
+}
+
+.btn{
+display:inline-block;
+padding:12px 23px;
+border-radius:30px;
+background:#00d9ff;
+color:#00131a;
+text-decoration:none;
+font-weight:bold;
+margin:6px
+}
+
+.btn.alt{
+background:transparent;
+color:#fff;
+border:1px solid #ffffff33
+}
+
+.profile{
+width:170px;
+height:170px;
+border:4px solid #00d9ff;
+border-radius:50%;
+display:grid;
+place-items:center;
+font-size:85px;
+margin:0 auto 25px;
+background:#101d39;
+box-shadow:0 0 50px #00d9ff22
+}
+
+.title{
+text-align:center;
+margin-bottom:45px
+}
+
+.title small{
+color:#00d9ff;
+letter-spacing:3px
+}
+
+.title h2{
+font-size:42px
+}
+
+.title p{
+color:#a9b4cc;
+max-width:650px;
+margin:10px auto
+}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px
+}
+
+.grid3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
+}
+
+.grid4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+
+.card{
+background:#111a33;
+border:1px solid #ffffff10;
+border-radius:22px;
+padding:28px;
+transition:.3s
+}
+
+.card:hover{
+transform:translateY(-7px);
+border-color:#00d9ff88
+}
+
+.card p{
+color:#a9b4cc
+}
+
+.icon{
+font-size:45px;
+margin-bottom:10px
+}
+
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
+
+.info .card span{
+color:#00d9ff;
+display:block;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:2px
+}
+
+.stats{
+background:#0d1326
+}
+
+.stat{
+text-align:center
+}
+
+.stat h3{
+font-size:38px;
+color:#00d9ff
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #ffffff10
+}
+
+.row span:first-child{
+color:#a9b4cc
+}
+
+.project-top{
+height:120px;
+display:grid;
+place-items:center;
+font-size:60px;
+background:#142342;
+margin:-28px -28px 20px;
+border-radius:22px 22px 0 0
+}
+
+.project-card{
+display:flex;
+flex-direction:column
+}
+
+.project-card .btn{
+align-self:flex-start;
+margin:18px 0 0
+}
+
+.goal{
+display:flex;
+gap:18px;
+align-items:center;
+margin:12px 0
+}
+
+.goal .icon{
+font-size:35px
+}
+
+.service-card{
+text-align:left
+}
+
+.service-card h3{
+margin-bottom:8px
+}
+
+.service-card .icon{
+font-size:42px
+}
+
+.price-card{
+text-align:center;
+position:relative;
+overflow:hidden
+}
+
+.price-card.featured{
+border:2px solid #00d9ff88
+}
+
+.popular{
+background:#00d9ff;
+color:#00131a;
+position:absolute;
+top:15px;
+right:-32px;
+transform:rotate(40deg);
+padding:5px 35px;
+font-size:11px;
+font-weight:bold
+}
+
+.price{
+font-size:36px;
+color:#00d9ff;
+font-weight:bold;
+margin:12px 0
+}
+
+.price-card ul{
+list-style:none;
+text-align:left;
+margin:15px 0
+}
+
+.price-card li{
+padding:6px 0;
+color:#a9b4cc
+}
+
+.price-card li::before{
+content:"✓ ";
+color:#00d9ff;
+font-weight:bold
+}
+
+.step{
+text-align:center
+}
+
+.step-number{
+width:45px;
+height:45px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:#00d9ff;
+color:#00131a;
+font-weight:bold;
+margin:0 auto 15px
+}
+
+.contact{
+text-align:center;
+background:linear-gradient(
+135deg,
+#101c38,
+#0b1225
+);
+border-radius:28px;
+padding:55px 25px
+}
+
+.contact p{
+color:#a9b4cc;
+max-width:650px;
+margin:15px auto 25px
+}
+
+.email-box{
+display:inline-block;
+margin-top:15px;
+color:#00d9ff;
+font-weight:bold
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#8d9ab2;
+border-top:1px solid #ffffff10
+}
+
+footer a{
+color:#00d9ff;
+text-decoration:none;
+font-weight:bold
+}
+
+@media(max-width:800px){
+
+nav ul{
+display:none
+}
+
+.menu{
+display:block
+}
+
+.grid2,
+.grid3,
+.grid4{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:550px){
+
+.grid2,
+.grid3,
+.grid4,
+.info{
+grid-template-columns:1fr
+}
+
+.title h2{
+font-size:34px
+}
+
+.hero p{
+font-size:16px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+Adi<span>.</span>
+</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#cricket">Cricket</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Hire Me</a></li>
+
+</ul>
+
+<div class="menu">☰</div>
+
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<div>
+
+<div class="profile">
+👨‍💻
+</div>
+
+<div class="badge">
+👋 WELCOME TO MY WEBSITE
+</div>
+
+<h1>
+Hi, I'm <span class="accent">Aditya</span>
+</h1>
+
+<h2>
+Student • Cricketer • Web Designer • Coder
+</h2>
+
+<p>
+I love cricket, technology, coding and creating new things.
+I also create affordable websites for businesses,
+coaching centres and personal portfolios.
+</p>
+
+<a class="btn" href="#about">
+Explore Me
+</a>
+
+<a class="btn alt" href="#services">
+Hire Me
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>GET TO KNOW ME</small>
+
+<h2>
+About <span class="accent">Me</span>
+</h2>
+
+<p>
+A little information about who I am and what I enjoy.
+</p>
+
+</div>
+
+<div class="grid2">
+
+<div>
+
+<h2>Hello! 👋</h2>
+
+<br>
+
+<p style="color:#a9b4cc">
+
+I'm Aditya, a student interested in cricket,
+coding and web designing. I enjoy learning new
+technologies, experimenting with ideas and
+building websites.
+
+Cricket is one of my biggest passions,
+and I also enjoy creating modern websites
+using HTML, CSS and JavaScript.
+
+</p>
+
+</div>
+
+<div class="info">
+
+<div class="card">
+<span>Name</span>
+<b>Aditya</b>
+</div>
+
+<div class="card">
+<span>Role</span>
+<b>Student & Web Designer</b>
+</div>
+
+<div class="card">
+<span>Passion</span>
+<b>Cricket</b>
+</div>
+
+<div class="card">
+<span>Interest</span>
+<b>Web Design & Coding</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>MY NUMBERS</small>
+
+<h2>
+Quick <span class="accent">Stats</span>
+</h2>
+
+</div>
+
+<div class="grid4">
+
+<div class="card stat">
+<h3>9th</h3>
+<p>Current Class</p>
+</div>
+
+<div class="card stat">
+<h3>68</h3>
+<p>Cricket Matches</p>
+</div>
+
+<div class="card stat">
+<h3>3500+</h3>
+<p>Career Runs</p>
+</div>
+
+<div class="card stat">
+<h3>101*</h3>
+<p>Best Score</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CRICKET -->
+
+<section id="cricket">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>MY SPORTING SIDE</small>
+
+<h2>
+Cricket <span class="accent">Profile</span>
+</h2>
+
+</div>
+
+<div class="grid2">
+
+<div class="card">
+
+<h2>🏏 Player Profile</h2>
+
+<div class="row">
+<span>Role</span>
+<b>Batsman</b>
+</div>
+
+<div class="row">
+<span>Batting</span>
+<b>Right Handed</b>
+</div>
+
+<div class="row">
+<span>Bowling</span>
+<b>Right-Arm Off Spin</b>
+</div>
+
+<div class="row">
+<span>Position</span>
+<b>Top Order</b>
+</div>
+
+<div class="row">
+<span>Favorite Shot</span>
+<b>Cover Drive</b>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>⭐ Highlights</h2>
+
+<div class="row">
+<span>Best Score</span>
+<b>101*</b>
+</div>
+
+<div class="row">
+<span>Best Bowling</span>
+<b>2/12</b>
+</div>
+
+<div class="row">
+<span>Total Runs</span>
+<b>3500+</b>
+</div>
+
+<div class="row">
+<span>Jersey Number</span>
+<b>18</b>
+</div>
+
+<div class="row">
+<span>Role Model</span>
+<b>Virat Kohli</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="stats">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>MY PROFESSIONAL SERVICES</small>
+
+<h2>
+Web Design <span class="accent">Services</span>
+</h2>
+
+<p>
+Need a simple and modern website?
+I can help you create one.
+</p>
+
+</div>
+
+<div class="grid3">
+
+<div class="card service-card">
+
+<div class="icon">🌐</div>
+
+<h3>
+Business Websites
+</h3>
+
+<p>
+Modern websites for shops, local businesses,
+services and small companies.
+</p>
+
+</div>
+
+<div class="card service-card">
+
+<div class="icon">🎓</div>
+
+<h3>
+Coaching Websites
+</h3>
+
+<p>
+Professional websites for tuition centres,
+coaching institutes and academies.
+</p>
+
+</div>
+
+<div class="card service-card">
+
+<div class="icon">🏏</div>
+
+<h3>
+Cricket Portfolios
+</h3>
+
+<p>
+Player profiles with statistics,
+achievements and career information.
+</p>
+
+</div>
+
+<div class="card service-card">
+
+<div class="icon">📱</div>
+
+<h3>
+Mobile-Friendly Websites
+</h3>
+
+<p>
+Responsive websites designed to work
+on phones, tablets and computers.
+</p>
+
+</div>
+
+<div class="card service-card">
+
+<div class="icon">🎨</div>
+
+<h3>
+Landing Pages
+</h3>
+
+<p>
+Modern one-page websites for projects,
+products, events and promotions.
+</p>
+
+</div>
+
+<div class="card service-card">
+
+<div class="icon">🔧</div>
+
+<h3>
+Website Updates
+</h3>
+
+<p>
+Basic text, image, link and layout
+updates for existing websites.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>AFFORDABLE STARTING PRICES</small>
+
+<h2>
+My <span class="accent">Pricing</span>
+</h2>
+
+<p>
+Final price may vary depending on website requirements.
+</p>
+
+</div>
+
+<div class="grid4">
+
+<div class="card price-card">
+
+<h3>
+1 Page Website
+</h3>
+
+<div class="price">
+₹499+
+</div>
+
+<ul>
+
+<li>Responsive design</li>
+<li>Basic sections</li>
+<li>Contact button</li>
+<li>Modern layout</li>
+
+</ul>
+
+<a href="#contact" class="btn">
+Choose Plan
+</a>
+
+</div>
+
+
+<div class="card price-card featured">
+
+<div class="popular">
+POPULAR
+</div>
+
+<h3>
+3 Page Website
+</h3>
+
+<div class="price">
+₹999+
+</div>
+
+<ul>
+
+<li>Up to 3 pages</li>
+<li>Mobile-friendly</li>
+<li>Custom content</li>
+<li>Modern design</li>
+
+</ul>
+
+<a href="#contact" class="btn">
+Choose Plan
+</a>
+
+</div>
+
+
+<div class="card price-card">
+
+<h3>
+5 Page Website
+</h3>
+
+<div class="price">
+₹1,499+
+</div>
+
+<ul>
+
+<li>Up to 5 pages</li>
+<li>Custom sections</li>
+<li>Responsive layout</li>
+<li>Professional design</li>
+
+</ul>
+
+<a href="#contact" class="btn">
+Choose Plan
+</a>
+
+</div>
+
+
+<div class="card price-card">
+
+<h3>
+Portfolio Website
+</h3>
+
+<div class="price">
+₹799+
+</div>
+
+<ul>
+
+<li>Profile section</li>
+<li>Achievements</li>
+<li>Gallery/links</li>
+<li>Responsive design</li>
+
+</ul>
+
+<a href="#contact" class="btn">
+Choose Plan
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>WHAT I LIKE</small>
+
+<h2>
+My <span class="accent">Skills & Interests</span>
+</h2>
+
+</div>
+
+<div class="grid3">
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>HTML & CSS</h3>
+<p>
+Creating responsive websites and experimenting with designs.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>JavaScript</h3>
+<p>
+Learning to make websites interactive and useful.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Web Design</h3>
+<p>
+Building clean and modern website layouts.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏏</div>
+<h3>Cricket</h3>
+<p>
+Practicing batting, bowling and fielding.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎬</div>
+<h3>Video Editing</h3>
+<p>
+Creating creative edits and experimenting with videos.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Learning</h3>
+<p>
+Exploring new ideas, tools and technologies.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="stats">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>WHAT I CREATE</small>
+
+<h2>
+My <span class="accent">Projects</span>
+</h2>
+
+<p>
+Explore some of my websites and projects.
+</p>
+
+</div>
+
+<div class="grid3">
+
+
+<div class="card project-card">
+
+<div class="project-top">
+🏏
+</div>
+
+<h3>
+Aditya Cricket Portfolio
+</h3>
+
+<p>
+My personal cricket portfolio containing
+my cricket profile, statistics, achievements
+and playing information.
+</p>
+
+<a
+class="btn"
+href="https://aditya-1829.github.io/Aditya-Cricket-Portfolio/"
+target="_blank"
+rel="noopener">
+
+Visit Website ↗
+
+</a>
+
+</div>
+
+
+<div class="card project-card">
+
+<div class="project-top">
+🏫
+</div>
+
+<h3>
+Nisha Success Coaching
+</h3>
+
+<p>
+A coaching institute website designed
+for students with information about
+courses, teachers and contact details.
+</p>
+
+<a
+class="btn"
+href="https://aditya-1829.github.io/NSC-COACHING-/"
+target="_blank"
+rel="noopener">
+
+Visit Website ↗
+
+</a>
+
+</div>
+
+
+<div class="card project-card">
+
+<div class="project-top">
+🎓
+</div>
+
+<h3>
+Aditya's Academic
+</h3>
+
+<p>
+My academic website for sharing
+student-related information and
+educational projects.
+</p>
+
+<a
+class="btn"
+href="https://aditya-1829.github.io/Aditya-s-Academic/"
+target="_blank"
+rel="noopener">
+
+Visit Website ↗
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+<div class="wrap">
+
+<div class="title">
+
+<small>SIMPLE PROCESS</small>
+
+<h2>
+How It <span class="accent">Works</span>
+</h2>
+
+</div>
+
+<div class="grid4">
+
+<div class="card step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+Tell Me
+</h3>
+
+<p>
+Tell me what type of website
+you need and share your requirements.
+</p>
+
+</div>
+
+
+<div class="card step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+Get a Demo
+</h3>
+
+<p>
+I can create a basic design
+for you to review.
+</p>
+
+</div>
+
+
+<div class="card step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+Build
+</h3>
+
+<p>
+The agreed website is developed
+and optimized for mobile.
+</p>
+
+</div>
+
+
+<div class="card step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+Publish
+</h3>
+
+<p>
+The completed website can be
+published and delivered.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOALS -->
+
+<section id="goals">
+
+<div class="wrap">
+
+<div class="title">
+
+<small>LOOKING AHEAD</small>
+
+<h2>
+My Future <span class="accent">Goals</span>
+</h2>
+
+</div>
+
+<div class="card goal">
+
+<div class="icon">🏏</div>
+
+<div>
+
+<h3>
+Improve in Cricket
+</h3>
+
+<p>
+Keep practicing and become
+a better cricketer.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card goal">
+
+<div class="icon">💻</div>
+
+<div>
+
+<h3>
+Master Web Development
+</h3>
+
+<p>
+Learn advanced web technologies
+and create bigger projects.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card goal">
+
+<div class="icon">🚀</div>
+
+<div>
+
+<h3>
+Build Amazing Projects
+</h3>
+
+<p>
+Turn creative ideas into real
+websites and applications.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="wrap">
+
+<div class="contact">
+
+<div class="badge">
+💼 AVAILABLE FOR WEBSITE PROJECTS
+</div>
+
+<h2>
+Need a Website?
+</h2>
+
+<p>
+Have a business, coaching centre,
+portfolio or project that needs a website?
+Contact me and tell me what you need.
+</p>
+
+<a
+class="btn"
+href="mailto:adityakumarjha.1829@gmail.com?subject=Website%20Requirement&body=Hello%20Aditya,%0A%0AI%20am%20interested%20in%20getting%20a%20website.%0A%0AWebsite%20type:%0ABusiness/Coaching/Portfolio/Other:%0A%0ARequirements:%0A">
+
+📧 Email Me
+
+</a>
+
+<div class="email-box">
+📩 adityakumarjha.1829@gmail.com
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026
+<b class="accent">
+Aditya Kumar Jha
+</b>
+• Built with HTML & CSS
+</p>
+
+<p style="margin-top:8px;">
+
+<a
+href="https://aditya-1829.github.io/Aditya-Cricket-Portfolio/"
+target="_blank"
+rel="noopener">
+
+🏏 Cricket Portfolio
+
+</a>
+
+&nbsp; | &nbsp;
+
+<a
+href="https://aditya-1829.github.io/Aditya-s-Academic/"
+target="_blank"
+rel="noopener">
+
+🎓 Academic Website
+
+</a>
+
+</p>
+
+<p style="margin-top:8px;font-size:13px;">
+Made By Aditya Kumar Jha ❤️
+</p>
+
+</footer>
+
+</body>
+</html>
