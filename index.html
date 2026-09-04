@@ -125,6 +125,10 @@ margin-bottom:20px
 font-size:clamp(45px,8vw,80px);
 line-height:1.05;
 animation:heroTitle 1s ease-out;
+background:linear-gradient(90deg,#00d9ff,#7c3aed,#00d9ff);
+  background-size:200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .hero p{
@@ -143,7 +147,13 @@ background:#00d9ff;
 color:#00131a;
 text-decoration:none;
 font-weight:bold;
-margin:6px
+margin:6px;
+transition:all .3s ease;
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 0 25px #00d9ff88;
 }
 
 .btn.alt{
@@ -273,12 +283,26 @@ background:#0d1326
 }
 
 .stat{
-text-align:center
+text-align:center;
+padding:25px;
+border:1px solid #ffffff22;
+border-radius:20px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(12px);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+transition:all .3s ease;
 }
+
+ .stat:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 30px #00d9ff55;
+ }
+
 
 .stat h3{
 font-size:38px;
-color:#00d9ff
+color:#00d9ff;
+text-shadow:0 0 15px #00d9ff;
 }
 
 .row{
@@ -502,6 +526,38 @@ font-size:16px
   opacity:1;
   transform:translateY(0);
 }
+
+ @keyframes gradientMove{
+  0%{
+    background-position:0% 50%;
+  }
+  100%{
+    background-position:200% 50%;
+  }
+
+  body::before{
+  content:"";
+  position:fixed;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:#00d9ff22;
+  filter:blur(80px);
+  top:15%;
+  left:-80px;
+  animation:orbMove 7s ease-in-out infinite alternate;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes orbMove{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(120px,100px);
+  }
+ }
 </style>
 </head>
 
