@@ -162,14 +162,35 @@ margin:0 auto 25px;
 background:#101d39;
 box-shadow:0 0 50px #00d9ff22;
 overflow:hidden;
+box-shadow:0 0 20px #00d9ff55;
+animation: profileGlow 2s ease-in-out infinite;
 }
+
+ @keyframes profileGlow{
+ 0%,100%{
+   box-shadow:0 0 20px #00d9ff55;
+ }
+ 50%{
+   box-shadow:0 0 45px #00d9ff;
+ }
+ }
 
 .profile img{
  width:100%;
  height:100%;
  border-radius:50%;
  object-fit:cover;
+ animation: profileFloat 3s ease-in-out infinite;
 }
+
+ @keyframes profileFloat{
+ 0%,100%{
+   transform:translateY(0) scale(1);
+ }
+ 50%{
+   transform:translateY(-8px) scale(1.03);
+ }
+ }
 
 .title{
 text-align:center;
