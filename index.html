@@ -491,6 +491,17 @@ font-size:16px
    transform:translateY(0);
  }
 }
+
+ .reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
 </style>
 </head>
 
@@ -612,22 +623,22 @@ using HTML, CSS and JavaScript.
 
 <div class="info">
 
-<div class="card">
+<div class="card reveal">
 <span>Name</span>
 <b>Aditya Kumar Jha</b>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <span>Role</span>
 <b>Student & Web Designer</b>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <span>Passion</span>
 <b>Cricket</b>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <span>Interest</span>
 <b>Web Design & Coding</b>
 </div>
@@ -1477,6 +1488,23 @@ Helper/ Instructor:- Lalita Ma'am ( My Computer Teacher)
 </p>
 
 </footer>
+
+ <script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 80){
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+       </script>
 
 </body>
 </html>
