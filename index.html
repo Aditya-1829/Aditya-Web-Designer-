@@ -676,12 +676,12 @@ Quick <span class="accent">Stats</span>
 </div>
 
 <div class="card stat">
-<h3>69</h3>
+<h3><span class="counter" data-target="69">0</span></h3>
 <p>Cricket Matches</p>
 </div>
 
 <div class="card stat">
-<h3>3585+</h3>
+<h3><span class="counter" data-target="3585">0</span>+</h3>
 <p>Career Runs</p>
 </div>
 
@@ -1505,6 +1505,41 @@ function revealOnScroll(){
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
        </script>
+
+ <script>
+const counters = document.querySelectorAll('.counter');
+
+const startCounter = (counter) => {
+  const target = Number(counter.dataset.target);
+  let current = 0;
+
+  const update = () => {
+    const increment = Math.ceil(target / 80);
+    current += increment;
+
+    if (current >= target) {
+      counter.textContent = target;
+      return;
+    }
+
+    counter.textContent = current;
+    requestAnimationFrame(update);
+  };
+
+  update();
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.started) {
+      entry.target.dataset.started = "true";
+      startCounter(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => observer.observe(counter));
+ </script>
 
 </body>
 </html>
