@@ -247,7 +247,8 @@ background:#111a33;
 border:1px solid #ffffff10;
 border-radius:22px;
 padding:28px;
-transition:.3s
+transition:transform .2s ease, box-shadow .2s ease;
+transform-style:preserve-3d;
 }
 
 .card:hover{
@@ -1596,6 +1597,27 @@ const observer = new IntersectionObserver((entries) => {
 
 counters.forEach(counter => observer.observe(counter));
  </script>
+
+  <script>
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+
+    const rotateX=(y/rect.height-0.5)*-10;
+    const rotateY=(x/rect.width-0.5)*10;
+
+    card.style.transform=
+      `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  });
+
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+  </script>
 
 </body>
 </html>
