@@ -576,20 +576,28 @@ font-size:16px
   /* SCROLL PROGRESS BAR */
 #progressBar{
   position:fixed;
-  top:0;
+  top:70px;
   left:0;
   width:0%;
-  height:4px;
+  height:5px;
   background:linear-gradient(90deg,#00d9ff,#7c3aed,#00d9ff);
-  box-shadow:0 0 12px #00d9ff;
-  z-index:99999;
+  background-size:200% 100%;
+  box-shadow:0 0 15px #00d9ff;
+  z-index:999999;
   pointer-events:none;
-  transition:width:.08s linear;
+  transition:width .1s linear;
+  animation:progressGlow 2s linear infinite;
 }
 
-  @media(max-width:550px){
+@keyframes progressGlow{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+@media(max-width:550px){
   #progressBar{
-    height:3px;
+    top:70px;
+    height:4px;
   }
 }
     
@@ -1673,23 +1681,23 @@ document.querySelectorAll('.card').forEach(card=>{
   </script>
 
   <script>
-const progressBar = document.getElementById('progressBar');
+const progressBar = document.getElementById("progressBar");
 
-function updateProgressBar(){
+function updateProgress(){
   const scrollTop = window.scrollY;
-  const scrollable =
+  const pageHeight =
     document.documentElement.scrollHeight - window.innerHeight;
 
-  const progress =
-    scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
-
-  progressBar.style.width = progress + '%';
+  if(pageHeight > 0){
+    const percent = (scrollTop / pageHeight) * 100;
+    progressBar.style.width = percent + "%";
+  }
 }
 
-window.addEventListener('scroll', updateProgressBar, {passive:true});
-window.addEventListener('resize', updateProgressBar);
+window.addEventListener("scroll", updateProgress, {passive:true});
+window.addEventListener("resize", updateProgress);
 
-updateProgressBar();
+updateProgress();
   </script>
 
 </body>
