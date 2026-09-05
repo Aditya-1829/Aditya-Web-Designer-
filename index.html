@@ -118,8 +118,21 @@ border:1px solid #00d9ff55;
 color:#00d9ff;
 padding:8px 15px;
 border-radius:30px;
-margin-bottom:20px
+margin-bottom:20px;
+animation:badgePulse 2s ease-in-out infinite;
 }
+
+@keyframes badgePulse{
+  0%,100%{
+    transform:scale(1);
+    box-shadow:0 0 0 #00d9ff00;
+  }
+
+  50%{
+    transform:scale(1.05);
+    box-shadow:0 0 22px #00d9ff55;
+  }
+} 
 
 .hero h1{
 font-size:clamp(45px,8vw,80px);
