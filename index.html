@@ -572,22 +572,25 @@ font-size:16px
     transform:translate(120px,100px);
   }
  }
-    
+
   .hero-role{
-  animation:roleReveal 1s ease-out .6s both;
+  color:#fff;
+  min-height:1.5em;
 }
 
-@keyframes roleReveal{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-    letter-spacing:8px;
-  }
+.hero-role::after{
+  content:"|";
+  color:#00d9ff;
+  margin-left:4px;
+  animation:blinkCursor .7s infinite;
+}
 
-  to{
+@keyframes blinkCursor{
+  0%,50%{
     opacity:1;
-    transform:translateY(0);
-    letter-spacing:normal;
+  }
+  51%,100%{
+    opacity:0;
   }
 }
 </style>
@@ -643,9 +646,7 @@ Aditya-Verse<span>.</span>
 Hi, I'm <span class="accent">Aditya Kumar Jha</span>
 </h1>
 
-<h2 class="hero-role">
-Student • Cricketer • Web Designer • Coder • Editor
-</h2>
+<h2 class="hero-role" id="typingText"></h2>
 
 <p>
 I love cricket, technology, coding and creating new things.
@@ -1649,6 +1650,55 @@ document.querySelectorAll('.card').forEach(card=>{
   });
 });
   </script>
+
+  <script>
+const typingText = document.getElementById("typingText");
+
+const roles = [
+  "Student",
+  "Cricketer",
+  "Web Designer",
+  "Coder",
+  "Editor"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeRole(){
+
+  const currentRole = roles[roleIndex];
+
+  if(!deleting){
+    typingText.textContent =
+      currentRole.substring(0, charIndex + 1);
+
+    charIndex++;
+
+    if(charIndex === currentRole.length){
+      deleting = true;
+      setTimeout(typeRole, 1500);
+      return;
+    }
+
+  }else{
+    typingText.textContent =
+      currentRole.substring(0, charIndex - 1);
+
+    charIndex--;
+
+    if(charIndex === 0){
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+  }
+
+  setTimeout(typeRole, deleting ? 55 : 90);
+}
+
+typeRole();
+    </script>
 
 </body>
 </html>
