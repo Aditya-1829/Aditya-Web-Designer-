@@ -572,34 +572,6 @@ font-size:16px
     transform:translate(120px,100px);
   }
  }
-
-  /* SCROLL PROGRESS BAR */
-#progressBar{
-  position:fixed;
-  top:70px;
-  left:0;
-  width:0%;
-  height:5px;
-  background:linear-gradient(90deg,#00d9ff,#7c3aed,#00d9ff);
-  background-size:200% 100%;
-  box-shadow:0 0 15px #00d9ff;
-  z-index:999999;
-  pointer-events:none;
-  transition:width .1s linear;
-  animation:progressGlow 2s linear infinite;
-}
-
-@keyframes progressGlow{
-  0%{background-position:0% 50%;}
-  100%{background-position:200% 50%;}
-}
-
-@media(max-width:550px){
-  #progressBar{
-    top:70px;
-    height:4px;
-  }
-}
     
   .hero-role{
   animation:roleReveal 1s ease-out .6s both;
@@ -622,8 +594,6 @@ font-size:16px
 </head>
 
 <body>
-  <!-- SCROLL PROGRESS -->
-<div id="progressBar"></div>
   
 <!-- HEADER -->
 
@@ -1678,26 +1648,6 @@ document.querySelectorAll('.card').forEach(card=>{
     card.style.transform='';
   });
 });
-  </script>
-
-  <script>
-const progressBar = document.getElementById("progressBar");
-
-function updateProgress(){
-  const scrollTop = window.scrollY;
-  const pageHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-
-  if(pageHeight > 0){
-    const percent = (scrollTop / pageHeight) * 100;
-    progressBar.style.width = percent + "%";
-  }
-}
-
-window.addEventListener("scroll", updateProgress, {passive:true});
-window.addEventListener("resize", updateProgress);
-
-updateProgress();
   </script>
 
 </body>
