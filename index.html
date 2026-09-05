@@ -572,6 +572,24 @@ font-size:16px
     transform:translate(120px,100px);
   }
  }
+
+  .hero-role{
+  animation:roleReveal 1s ease-out .6s both;
+}
+
+@keyframes roleReveal{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+    letter-spacing:8px;
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+    letter-spacing:normal;
+  }
+}
 </style>
 </head>
 
@@ -625,7 +643,7 @@ Aditya-Verse<span>.</span>
 Hi, I'm <span class="accent">Aditya Kumar Jha</span>
 </h1>
 
-<h2>
+<h2 class="hero-role">
 Student • Cricketer • Web Designer • Coder • Editor
 </h2>
 
