@@ -1812,22 +1812,23 @@ function typeRole(){
 typeRole();
     </script>
 
-  <!-- PAGE LOADER SCRIPT -->
+<!-- PAGE LOADER SCRIPT -->
 <script>
 
-window.addEventListener("load", function(){
+document.documentElement.style.overflow = "hidden";
 
-  setTimeout(function(){
+setTimeout(function(){
 
-    const loader = document.getElementById("page-loader");
+  const loader = document.getElementById("page-loader");
 
-    if(loader){
-      loader.classList.add("hide");
-    }
+  if(loader){
+    loader.classList.add("hide");
+  }
 
-  }, 5000);
+  document.documentElement.style.overflow = "";
 
-});
+}, 2500);
 
+</script>
 </body>
 </html>
